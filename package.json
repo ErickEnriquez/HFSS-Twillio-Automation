@@ -1,0 +1,19 @@
+{
+  "name": "hfss-twillio-automation",
+  "version": "1.0.0",
+  "description": "Server for returning automation rules for twilio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErickEnriquez/HFSS-Twillio-Automation.git"
+  },
+  "author": "Erick Enriquez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ErickEnriquez/HFSS-Twillio-Automation/issues"
+  },
+  "homepage": "https://github.com/ErickEnriquez/HFSS-Twillio-Automation#readme"
+}
