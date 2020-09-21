@@ -1,3 +1,13 @@
+const dotenv = require('dotenv');
+var cfg = {};
+
+if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
+  dotenv.config();
+} else {
+  dotenv.config();
+}
+
+// HTTP Port to run our web application
 cfg.port = process.env.PORT || 3000;
 
 // A random string that will help generate secure one-time passwords and
@@ -15,9 +25,7 @@ cfg.authToken = process.env.TWILIO_AUTH_TOKEN;
 cfg.sendingNumber = process.env.TWILIO_NUMBER;
 
 var requiredConfig = [cfg.accountSid, cfg.authToken, cfg.sendingNumber];
-var isConfigured = requiredConfig.every(function(configValue) {
-  return configValue || false;
-});
+var isConfigured = requiredConfig.every((configValue) => configValue || false);
 
 if (!isConfigured) {
   var errorMessage =

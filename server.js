@@ -1,3 +1,36 @@
+const config = require('./config')
+const express = require("express")
+const bodyParser = require('body-parser')
+const cfg = require('./config')
+const app = express()
+
+
+app.use(bodyParser.urlencoded({ extended: false }))
+
+
+app.post('/message', (req, res) => {
+  console.log(req.body)
+  res.send("<Response><Message>Hello</Message><Response>")
+})
+
+
+//app.get('/', (req, res) => res.send("Hello World"))
+
+let listener =  app.listen(config.port || 3000 , () => console.log("\n\nSERVER IS LIVE ON PORT " + cfg.port + "\n"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -72,9 +105,3 @@ app.use(function(err, request, response, next) {
 module.exports = app;*/
 
 
-const express = require("express")
-const app = express()
-
-app.get('/', (req, res) => res.send("Hello World"))
-
-app.listen(process.env.PORT || 3000 , () => console.log("\n\nSERVER IS LIVE\n\n"))
