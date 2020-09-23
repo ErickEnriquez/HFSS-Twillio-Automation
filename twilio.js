@@ -3,7 +3,7 @@ const twilio = require("twilio");
 const googleSheet = require("./googleSheets");
 
 module.exports = {
-  sendText: async function (message, recipientNumber) {
+  sendText: async (message, recipientNumber) => {
     const client = twilio(config.accountSid, config.authToken);
     try {
       await client.messages.create({
@@ -18,16 +18,18 @@ module.exports = {
   parseReceivedBody: async (body, recipient) => {
     let output = "Unable to process request";
     //parse the received message
-    if (body.match(/Schedule/gi)) {
-      recipient = recipient.slice(2); //slice off the +1
-       let result = await googleSheet.goodyearAutomationText(recipient);
+      if (body.match(/Schedule/gi)) {
+          if (recipient.slice(0, 2) == '+1') {
+              recipient = recipient.slice(2); //slice off the +1
+          }
+      let result = await googleSheet.goodyearAutomationText(recipient);
       if (result.staffName == false) {
         output = result.schedule; //sorry unable to find info
       } else {
         output =
           "Hello " +
           result.staffName +
-          " Here is your Schedule\n" +
+          " here is your schedule\n" +
           result.schedule;
       }
     } else if (body.match(/Subform/gi)) {
@@ -40,7 +42,10 @@ module.exports = {
       //send the form for desk supervisor eval
     } else if (body.match(/job/gi)) {
       // job application?
-    }
+      }
+      else if (body.match(/test/gi)) {
+          output = "THIS IS A TEST"
+      }
     return output;
   },
 };
