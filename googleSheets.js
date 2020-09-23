@@ -13,12 +13,15 @@ module.exports = {
         try {
             await doc.loadInfo(); // loads document properties and worksheets
             const data = await doc.sheetsByIndex[0].getRows();
-     
-            const row = staff.findStaff(data, recipient); // temporary phone number for now should be gotten from twilio when user sends request
+            const row = staff.findStaff(data, recipient); 
+          if (row == false) {
+            return { staffName: false, schedule: 'Sorry could not find info' }
+          }
+          else {
             const staffName = row["First Name:"] + " " + row["Last Name:"];
             const schedule = staff.createSchedule(row);
-            console.log(staffName)
-            return {staffName : staffName , schedule: schedule}
+            return { staffName: staffName, schedule: schedule }
+          }
         }
         catch (error) {
             console.log(error);

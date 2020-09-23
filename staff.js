@@ -1,14 +1,17 @@
 module.exports = {
   findStaff: (data, phoneNumber) => {
     for (i = 0; i < data.length; i++) {
-      let formattedPhoneNumber = data[i].Phone.replace(/\.|\-/g, "");
-      if (formattedPhoneNumber == phoneNumber) {
-        return data[i];
-      }
+      let formattedPhoneNumber = data[i].Phone;
+      try {
+        formattedPhoneNumber = data[i].Phone.replace(/\.|\-/g, ""); // replace all . and - in phone numbers
+        if (formattedPhoneNumber == phoneNumber) {
+          return data[i];
+        }
+      } catch (err) {}
     }
     return false;
   },
-    createSchedule: function (row) {
+  createSchedule: function (row) {
     return (
       this.isEmpty(row["Mon sched"], "Mon") +
       this.isEmpty(row["Tue sched"], "Tue") +
@@ -18,8 +21,8 @@ module.exports = {
       this.isEmpty(row["Sat sched"], "Sat") +
       this.isEmpty(row["Sun sched"], "Sun")
     );
-    },
-    //Check the data passes and return if only if not empty or filled with None
+  },
+  //Check the data passes and return if only if not empty or filled with None
   isEmpty: function (str, dayOfWeek) {
     if (!str || 0 === str.length || str.match(/NONE/i)) {
       return "";

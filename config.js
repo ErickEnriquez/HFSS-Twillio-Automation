@@ -20,6 +20,7 @@ cfg.serviceEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL
 cfg.privateKey = process.env.GOOGLE_PRIVATE_KEY
 cfg.massTextSheetID = process.env.MASS_TEXT_SHEET_ID
 cfg.goodyearStaffingSheetID = process.env.GOODYEAR_STAFFING_FALL2020
+cfg.allStaffIngSheetID = process.env.STAFFING_AVAILABLE_CURRENT_DATA
 
 var requiredConfig = [
   cfg.accountSid,
@@ -29,11 +30,12 @@ var requiredConfig = [
   cfg.privateKey,
   cfg.massTextSheetID,
   cfg.goodyearStaffingSheetID,
+  cfg.allStaffIngSheetID
 ];
 var isConfigured = requiredConfig.every((configValue) => configValue || false);
 
 if (!isConfigured) {
-  const errorMessage = 'MISSING TOKENS/CREDENTIALS ENSURE .env FILE HAS BEEN FILLED IN';
+  const errorMessage = 'MISSING TOKENS/CREDENTIALS ENSURE KEYS HAVE BEEN FILLED IN';
   throw new Error(errorMessage);
 }
 
