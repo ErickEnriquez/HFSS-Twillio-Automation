@@ -14,8 +14,8 @@ app.post("/message", async (req, res) => {
   try {
     let result = await automationHandler.parseReceivedBody(message, receivedNumber)
     res.send("<Response><Message>" + result + "</Message></Response>");
-}
-  catch (error){console.log(error)}
+  }
+  catch (error) { console.log(error) }
 }
 );
 //=================================================================================================================================================
@@ -25,11 +25,20 @@ app.get("/", async (req, res) => {
     res.send(result)
   }
   catch (error){console.log(error)}*/
-  res.send("Server Response")
+  res.json({
+    accountSID: config.accountSid,
+    authToken: config.authToken,
+    companyPhone: config.sendingNumber,
+    serviceEmail: config.serviceEmail,
+    privateKey: config.privateKey,
+    massTextSheetID: config.massTextSheetID,
+    goodyearStaffIngSheetID: config.goodyearStaffingSheetID,
+    allStaffIngSheetID: config.allStaffIngSheetID
+  });
 });
 
-//=================================================================================================================================================
+  //=================================================================================================================================================
 
-var listener = app.listen(config.port, () => {
-  console.log("Server is listening on port " + listener.address().port);
-});
+  var listener = app.listen(config.port, () => {
+    console.log("Server is listening on port " + listener.address().port);
+  });

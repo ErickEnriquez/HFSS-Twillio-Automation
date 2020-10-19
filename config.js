@@ -24,11 +24,11 @@ var requiredConfig = [
   cfg.accountSid,
   cfg.authToken,
   cfg.sendingNumber,
-  /*cfg.serviceEmail,
+  cfg.serviceEmail,
   cfg.privateKey,
-  cfg.massTextSheetID,
-  cfg.goodyearStaffingSheetID,
-  cfg.allStaffIngSheetID*/
+  //cfg.massTextSheetID,
+  //cfg.goodyearStaffingSheetID,
+  //cfg.allStaffIngSheetID
 ];
 var isConfigured = requiredConfig.every((configValue) => configValue || false);
 
