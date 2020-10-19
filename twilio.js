@@ -44,11 +44,11 @@ module.exports = {
       // job application?
       }
       else if (body.match(/test/gi)) {
-          output = "Debug"
+          output = "Debuging"
       }
-      else {
-        output = "Thank your for your response"
-    }
+      else{
+        output = "Thank you for your Response"
+      }
     return output;
   },
 };

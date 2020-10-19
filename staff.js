@@ -1,6 +1,6 @@
 module.exports = {
   findStaff: (data, phoneNumber) => {
-    for (i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
       let formattedPhoneNumber = data[i].Phone;
       try {
         formattedPhoneNumber = data[i].Phone.replace(/\.|\-/g, ""); // replace all . and - in phone numbers
