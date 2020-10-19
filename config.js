@@ -26,9 +26,9 @@ var requiredConfig = [
   cfg.sendingNumber,
   cfg.serviceEmail,
   cfg.privateKey,
-  //cfg.massTextSheetID,
-  //cfg.goodyearStaffingSheetID,
-  //cfg.allStaffIngSheetID
+  cfg.massTextSheetID,
+  cfg.goodyearStaffingSheetID,
+  cfg.allStaffIngSheetID
 ];
 var isConfigured = requiredConfig.every((configValue) => configValue || false);
 
