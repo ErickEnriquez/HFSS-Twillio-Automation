@@ -19,22 +19,8 @@ app.post("/message", async (req, res) => {
 }
 );
 //=================================================================================================================================================
-app.get("/", async (req, res) => {
-  /*try {
-    let result = await automationHandler.parseReceivedBody('Schedule', '6025014536')// lizzie's placeholder phone number
-    res.send(result)
-  }
-  catch (error){console.log(error)}*/
-  res.json({
-    accountSID: config.accountSid,
-    authToken: config.authToken,
-    companyPhone: config.sendingNumber,
-    serviceEmail: config.serviceEmail,
-    privateKey: config.privateKey,
-    massTextSheetID: config.massTextSheetID,
-    goodyearStaffIngSheetID: config.goodyearStaffingSheetID,
-    allStaffIngSheetID: config.allStaffIngSheetID
-  });
+app.get("/", (req, res) => {
+  res.send("Server is live")
 });
 
   //=================================================================================================================================================
