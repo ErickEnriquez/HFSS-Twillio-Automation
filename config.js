@@ -1,6 +1,4 @@
-const dotenv = require('dotenv');
 var cfg = {};
-
 if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
 }
