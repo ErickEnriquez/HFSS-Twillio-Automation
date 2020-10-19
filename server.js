@@ -19,13 +19,14 @@ app.post("/message", async (req, res) => {
 }
 );
 //=================================================================================================================================================
-/*app.get("/", async (req, res) => {
-  try {
+app.get("/", async (req, res) => {
+  /*try {
     let result = await automationHandler.parseReceivedBody('Schedule', '6025014536')// lizzie's placeholder phone number
     res.send(result)
   }
-  catch (error){console.log(error)}
-});*/
+  catch (error){console.log(error)}*/
+  res.send("Server Response")
+});
 
 //=================================================================================================================================================
 
