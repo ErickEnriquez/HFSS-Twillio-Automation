@@ -1,5 +1,6 @@
 var cfg = {};
 if (process.env.NODE_ENV !== 'production') {
+  const dotenv = require('dotenv')
   dotenv.config();
 }
 
@@ -13,7 +14,6 @@ cfg.port = process.env.PORT || 3000;
 cfg.accountSid = process.env.TWILIO_ACCOUNT_SID;
 cfg.authToken = process.env.TWILIO_AUTH_TOKEN;
 cfg.sendingNumber = process.env.TWILIO_NUMBER;
-
 cfg.serviceEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL
 cfg.privateKey = process.env.GOOGLE_PRIVATE_KEY
 cfg.massTextSheetID = process.env.MASS_TEXT_SHEET_ID
@@ -24,11 +24,11 @@ var requiredConfig = [
   cfg.accountSid,
   cfg.authToken,
   cfg.sendingNumber,
-  cfg.serviceEmail,
+  /*cfg.serviceEmail,
   cfg.privateKey,
   cfg.massTextSheetID,
   cfg.goodyearStaffingSheetID,
-  cfg.allStaffIngSheetID 
+  cfg.allStaffIngSheetID*/
 ];
 var isConfigured = requiredConfig.every((configValue) => configValue || false);
 
