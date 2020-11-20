@@ -33,8 +33,10 @@ module.exports = {
           result.schedule;
       }
     } else if (body.match(/Subform/gi)) {
-      //send the subform link
+      //Send the Sub Form link
+        output = 'Please update your SUBBING availability for this season\: \nhttps\:\/\/hubbardswim.typeform.com\/to\/J9Kfhm'
     } else if (body.match(/Staffing/gi)) {
+      //Send the Staffing Link
       output = 'Please complete the staffing request form for the next season\: \nhttps\:\/\/hubbardswim.typeform.com\/to\/jP5dDs'
     } else if (body.match(/Q12/gi)) {
       //send the q12 evaluation
