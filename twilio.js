@@ -35,7 +35,7 @@ module.exports = {
     } else if (body.match(/Subform/gi)) {
       //send the subform link
     } else if (body.match(/Staffing/gi)) {
-      //send the staffing form link
+      output = 'Please complete the staffing request form for the next season\: \nhttps\:\/\/hubbardswim.typeform.com\/to\/jP5dDs'
     } else if (body.match(/Q12/gi)) {
       //send the q12 evaluation
     } else if (body.match(/dseval/gi)) {
