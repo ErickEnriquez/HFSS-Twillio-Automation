@@ -10,22 +10,16 @@ Ensure that you add the service email to the list of editors in share settings f
 
 ## deployment
 this app is deployed on heroku at [url](https://hfss-twilio-server.herokuapp.com/). 
-In order to build changes to the heroku app, first login to heroku cli and follow instructions to login on console
-
-```
-heroku login
-```
-
-then deploy changes to app
-
-```
-git push heroku master
-```
 
 ### dependencies used
 [google sheets](https://www.npmjs.com/package/google-spreadsheet)
+
 [express](https://www.npmjs.com/package/express)
+
 [express-async-handler](https://www.npmjs.com/package/express-async-handler)
+
 [twilio](https://www.npmjs.com/package/twilio)
+
 [body-parser](https://www.npmjs.com/package/body-parser)
+
 [googleapis](https://www.npmjs.com/package/googleapis)

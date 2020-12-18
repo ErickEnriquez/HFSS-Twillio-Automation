@@ -22,15 +22,11 @@ module.exports = {
           if (recipient.slice(0, 2) == '+1') {
               recipient = recipient.slice(2); //slice off the +1
           }
-      let result = await googleSheet.goodyearAutomationText(recipient);
+      let result = await googleSheet.staffingAutomationText(recipient);
       if (result.staffName == false) {
         output = result.schedule; //sorry unable to find info
       } else {
-        output =
-          "Hello " +
-          result.staffName +
-          " here is your schedule\n" +
-          result.schedule;
+        output = "Hello " + result.staffName + " here is your schedule\n" + result.schedule;
       }
     } else if (body.match(/Subform/gi)) {
       //Send the Sub Form link
