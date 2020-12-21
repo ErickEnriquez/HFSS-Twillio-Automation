@@ -3,17 +3,14 @@ const bodyParser = require("body-parser");
 const config = require("./config");
 const automationHandler = require('./twilio')
 const app = express();
-
+const cors = require('cors')
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});// proxy request to avoid cors error
+
 
 //=================================================================================================================================================
 
-app.post("/message", async (req, res) => {
+app.post("/message", cors() ,  async (req, res) => {
   let message = req.body.Body;
   let receivedNumber = req.body.From.slice(2); //slice the +1 from the number example +1480-438-6672
   try {
