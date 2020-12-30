@@ -18,7 +18,7 @@ module.exports = {
   parseReceivedBody: async (body, recipient) => {
     let output = "Unable to process request";
     //parse the received message
-      if (body.match(/Schedule/gi)) {
+      /*if (body.match(/Schedule/gi)) {
           if (recipient.slice(0, 2) == '+1') {
               recipient = recipient.slice(2); //slice off the +1
           }
@@ -28,7 +28,7 @@ module.exports = {
       } else {
         output = "Hello " + result.staffName + " here is your schedule\n" + result.schedule;
       }
-    } else if (body.match(/Subform/gi)) {
+    } */ if (body.match(/Subform/gi)) {
       //Send the Sub Form link
         output = 'Please update your SUBBING availability for this season\: \nhttps\:\/\/hubbardswim.typeform.com\/to\/J9Kfhm'
     } else if (body.match(/Staffing/gi)) {
