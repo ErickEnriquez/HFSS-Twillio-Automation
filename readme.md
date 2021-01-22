@@ -1,6 +1,9 @@
 # HFSS SMS Automation
 This is a project for HFSS to handle Automation rules using Twilio and incorporating Google's various APIs
 
+### Requirements
+Node >= 12.18.2
+
 ### Usage
 
 This app handles various different types of automation rules from sending schedules to sending urls

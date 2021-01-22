@@ -1,4 +1,5 @@
 module.exports = {
+//==============================================================================================================
   findStaff: (data, phoneNumber) => {
     for (let i = 0; i < data.length; i++) {
       let formattedPhoneNumber = data[i].Phone;
@@ -11,6 +12,7 @@ module.exports = {
     }
     return false;
   },
+//==============================================================================================================
   createSchedule: function (row) {
     return (
       this.isEmpty(row["Mon sched"], "Mon") +
@@ -22,6 +24,7 @@ module.exports = {
       this.isEmpty(row["Sun sched"], "Sun")
     );
   },
+//==============================================================================================================
   //Check the data passes and return if only if not empty or filled with None
   isEmpty: function (str, dayOfWeek) {
     if (!str || 0 === str.length || str.match(/NONE/i)) {

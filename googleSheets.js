@@ -3,6 +3,7 @@ const config = require("./config");
 const staff = require("./staff");
 
 module.exports = {
+//==============================================================================================================
   goodyearAutomationText: async recipient => {// Deprecated, do not use
     // spreadsheet key is the long id in the sheets URL
     const doc = new GoogleSpreadsheet(config.goodyearStaffingSheetID);
@@ -27,7 +28,7 @@ module.exports = {
             console.log(error);
         }
   },
-
+//==============================================================================================================
   staffingAutomationText: async recipient => { //staffing automation text to send out schedule 
     // spreadsheet key is the long id in the sheets URL
     const doc = new GoogleSpreadsheet(config.allStaffIngSheetID);
@@ -52,6 +53,4 @@ module.exports = {
             console.log(error);
         }
   },
-  
-
 };

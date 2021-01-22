@@ -3,6 +3,7 @@ const twilio = require("twilio");
 const googleSheet = require("./googleSheets");
 
 module.exports = {
+//==============================================================================================================
   sendText: async (message, recipientNumber) => {
     const client = twilio(config.accountSid, config.authToken);
     try {
@@ -15,6 +16,7 @@ module.exports = {
       console.log(error);
     }
   },
+//==============================================================================================================
   parseReceivedBody: async (body, recipient) => {
     let output = "Unable to process request";
     //parse the received message
