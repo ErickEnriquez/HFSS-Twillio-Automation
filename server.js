@@ -4,7 +4,6 @@ const config = require("./config");
 const automationHandler = require('./twilio')
 const app = express();
 const cors = require('cors')
-const googleSheet = require("./googleSheets");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
@@ -23,10 +22,9 @@ app.post("/message", cors() ,  async (req, res) => {
 }
 );
 //=================================================================================================================================================
-app.get("/", async (req, res) => {
+app.get("/",  (req, res) => {
   try {
-    let result = await googleSheet.staffingAutomationText("4804386672");
-    res.send(result)
+    res.send('Server is live')
   }
   catch (error){console.log(error)}
 });
