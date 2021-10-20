@@ -1,8 +1,8 @@
 module.exports = {
 	//==============================================================================================================
 	findStaff: (data, phoneNumber) => {
-		return new Promise((resolve, reject) =>
-			let found = false
+		return new Promise((resolve, reject) => {
+			//let found = false
 			data.forEach((row) => {
 				const formattedNumber = row.Phone.replace(/\.|-/g, '').slice(1)
 
@@ -13,7 +13,7 @@ module.exports = {
 					return row
 				}
 			})
-		)
+		})
 	},
 	//==============================================================================================================
 	createSchedule: function (row) {
