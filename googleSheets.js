@@ -14,8 +14,7 @@ module.exports = {
 		try {
 			await doc.loadInfo() // loads document properties and worksheets
 			const data = await doc.sheetsByIndex[0].getRows()
-			const row = staff.findStaff(data, recipient)
-			console.log(row)
+			const row = await staff.findStaff(data, recipient)
 			if (!row) {
 				return { staffName: false, schedule: 'Sorry could not find info' }
 			}
