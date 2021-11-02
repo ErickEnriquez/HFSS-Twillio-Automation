@@ -7,7 +7,6 @@ const cors = require('cors')
 
 app.use(cors())
 
-const googleSheet = require('./googleSheets')
 app.use(bodyParser.urlencoded({ extended: false }))
 
 
@@ -28,7 +27,7 @@ app.post('/message', async (req, res) => {
 	}
 	catch (error) {
 		console.log(error)
-		res.send(400).json({ error })
+		res.status(400).json({ error })
 	}
 
 }
@@ -36,9 +35,7 @@ app.post('/message', async (req, res) => {
 //=================================================================================================================================================
 app.get('/', async (req, res) => {
 	try {
-		let result = await googleSheet.staffingAutomationText('+17122231014')
-		//res.send({ result: 'live' })
-		res.send(result)
+		res.status(200).json({ message: 'Server is running' })
 	}
 	catch (error) { console.log(error) }
 })

@@ -31,10 +31,10 @@ module.exports = {
 
 		} if (body.match(/Subform/gi)) {
 			//Send the Sub Form link
-			output = 'Please update your SUBBING availability for this season\: \nhttps\:\/\/hubbardswim.typeform.com\/to\/J9Kfhm'
+			output = 'Please update your SUBBING availability for this season: \nhttps://hubbardswim.typeform.com/to/J9Kfhm'
 		} else if (body.match(/Staffing/gi)) {
 			//Send the Staffing Link
-			output = 'Please complete the staffing request form for the next season\: \nhttps\:\/\/hubbardswim.typeform.com\/to\/jP5dDs'
+			output = 'Please complete the staffing request form for the next season: \nhttps://hubbardswim.typeform.com/to/jP5dDs'
 		} else if (body.match(/Q12/gi)) {
 			output = 'Please complete the Q12 feedback form before October 24th: https://hubbardswim.typeform.com/to/HDyesl#name=xxxxx'
 		} else if (body.match(/dseval/gi)) {
