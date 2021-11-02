@@ -5,14 +5,11 @@ module.exports = {
 			//let found = false
 			data.forEach((row) => {
 				const formattedNumber = row.Phone.replace(/\.|-/g, '').slice(1)
-
 				if (String(formattedNumber) === String(phoneNumber.slice(2))) {
-					console.log(`found match with ${formattedNumber}`)
-					console.log(row)
-					found = true
-					return row
+					resolve(row)
 				}
 			})
+			reject()
 		})
 	},
 	//==============================================================================================================
