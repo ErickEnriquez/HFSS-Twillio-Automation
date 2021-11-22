@@ -21,15 +21,15 @@ module.exports = {
 		let output = 'Unable to process request'
 		//parse the received message
 		if (body.match(/Schedule/gi)) {
-
+			console.log('Sending schedule')
 			const result = await googleSheet.staffingAutomationText(recipient)
 			const { staffName, schedule } = result
 
 			output = staffName ?
-				('Hello ' + staffName + ' here is your schedule\n' + schedule)
+				('Hello ' + staffName + ' here is your schedule, \n' + schedule)
 				: ('Sorry, unable to find info')
 
-		} if (body.match(/Subform/gi)) {
+		} else if (body.match(/Subform/gi)) {
 			//Send the Sub Form link
 			output = 'Please update your SUBBING availability for this season: \nhttps://hubbardswim.typeform.com/to/J9Kfhm'
 		} else if (body.match(/Staffing/gi)) {
@@ -46,7 +46,7 @@ module.exports = {
 			output = 'Debuging'
 		}
 		else {
-			output = 'Thank you for your Response this is a test'
+			output = 'Thank you for your Response'
 		}
 		return output
 	},
