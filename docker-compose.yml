@@ -1,0 +1,11 @@
+version: "3"
+services:
+  nodejs:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: nodejs
+    container_name: nodejs
+    env_file:
+      - .env
+    restart: unless-stopped

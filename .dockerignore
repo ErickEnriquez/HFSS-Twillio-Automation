@@ -1,0 +1,8 @@
+Dockerfile
+.dockerignore
+node_modules #installed inside the container
+npm-debug.log
+README.md
+.git
+.gitignore
+docker-compose.yml
