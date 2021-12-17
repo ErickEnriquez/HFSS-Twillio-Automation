@@ -3,11 +3,12 @@ const ExcelJS = require('exceljs')
 
 async function sendMessage ({ accountSid, authToken, from }, { message, mediaList }) {
 	try {
-		const list = await readCSV('/Users/erick/Downloads/names.csv')
+		const list = await readCSV('/Users/erick/Downloads/staff_names.csv')
 
 		const client = require('twilio')(accountSid, authToken)
 		list.forEach(item => {
 			const phoneNumber = String(formatPhoneNumber(item[3]))
+			// console.log(phoneNumber)
 			const msg = client.messages
 				.create({
 					body: message,
@@ -32,7 +33,7 @@ const readCSV = async (filePath) => {
 	return data
 }
 
-//take the phone numbers from csv file and format them all so twillio can send them all out correctly
+//take the phone numbers from csv file and format them all so twilio can send them all out correctly
 const formatPhoneNumber = (str) => {
 	//Filter only numbers from the input
 	let cleaned = ('' + str).replace(/\D/g, '')
@@ -52,7 +53,7 @@ sendMessage(
 
 	{
 		message: 'From HFSS' +
-			'\n\n' + 'Referral bonus for YOU! Earn up to $300 by referring a friend! we need staff ready to start in January! Tell them to apply now. Share on social media, send the info to all your amazing friends and/or family.' + '\n\n' + 'More details on referral bonus' + '\n\n' + 'Continuous interview - $50' + '\n' + 'Hired - $50' + '\n3 Months $100\n6 Months - $100' + '\n\n' + 'reply STOP to unsubscribe',
+			'\n\n' + 'Referral bonus for YOU! Earn up to $300 by referring a friend! we need staff ready to start in January! Tell them to apply now. Share these pictures on social media and send the info to all your amazing friends and/or family.' + '\n\n' + 'More details on referral bonus' + '\n\n' + 'Continuous interview - $50' + '\n' + 'Hired - $50' + '\n3 Months $100\n6 Months - $100' + '\n\n' + 'reply STOP to unsubscribe',
 		mediaList: [
 			'https://hfss-website.s3.us-west-2.amazonaws.com/now_hiring_2.png',
 			'https://hfss-website.s3.us-west-2.amazonaws.com/now_hiring_1.png'
