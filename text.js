@@ -4,18 +4,16 @@ const ExcelJS = require('exceljs')
 async function sendMessage ({ accountSid, authToken, from }, { message, mediaList }) {
 	try {
 		const list = await readCSV('/Users/erick/Downloads/staff_names.csv')
-
 		const client = require('twilio')(accountSid, authToken)
 		list.forEach(item => {
-			const phoneNumber = String(formatPhoneNumber(item[3]))
-			// console.log(phoneNumber)
+			const phoneNumber = String(formatPhoneNumber(item[4]))
 			const msg = client.messages
 				.create({
 					body: message,
 					from: from,
 					mediaUrl: mediaList,
 					to: phoneNumber
-				}).then(mes => console.log(mes.status)).catch(err => console.log(err, item[3]))
+				}).then(mes => console.log(mes.status)).catch(err => console.log(err, item[4]))
 		})
 	} catch (error) { console.error(error) }
 }
@@ -49,14 +47,20 @@ const formatPhoneNumber = (str) => {
 }
 
 sendMessage(
-	{ accountSid: config.accountSid, authToken: config.authToken, from: config.sendingNumber },
+	{
+		accountSid: config.accountSid,
+		authToken: config.authToken,
+		from: config.sendingNumber
+	},
 
 	{
-		message: 'From HFSS' +
-			'\n\n' + 'Referral bonus for YOU! Earn up to $300 by referring a friend! we need staff ready to start in January! Tell them to apply now. Share these pictures on social media and send the info to all your amazing friends and/or family.' + '\n\n' + 'More details on referral bonus' + '\n\n' + 'Continuous interview - $50' + '\n' + 'Hired - $50' + '\n3 Months $100\n6 Months - $100' + '\n\n' + 'reply STOP to unsubscribe',
+		message: `From HFSS
+
+		Hello HFSS Team, we will be closed Thursday Jan 27th to allow anyone who wishes to attend Ed McHale’s Funeral Service. Please see the attachment for funeral information & other opportunities to gather. An E-vite will follow for a HFSS Staff gathering at Bob & Kathy’s house Thursday evening.
+		
+		To Opt out reply STOP`,
 		mediaList: [
-			'https://hfss-website.s3.us-west-2.amazonaws.com/now_hiring_2.png',
-			'https://hfss-website.s3.us-west-2.amazonaws.com/now_hiring_1.png'
+			'https://hfss-website.s3.us-west-2.amazonaws.com/coachEd/Funeral+Schedule.png'
 		]
 	}
 )
