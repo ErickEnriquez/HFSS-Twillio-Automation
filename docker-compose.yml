@@ -1,6 +1,6 @@
 version: "3"
 services:
-  nodejs:
+  hfss-twilio:
     build:
       context: ./
       dockerfile: Dockerfile
