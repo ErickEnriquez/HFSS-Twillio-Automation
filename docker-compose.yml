@@ -4,8 +4,10 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: nodejs
-    container_name: nodejs
+    image: hfss-twilio
+    container_name: hfss-twilio
     env_file:
       - .env
     restart: unless-stopped
+    ports:
+      - 3000:3000
