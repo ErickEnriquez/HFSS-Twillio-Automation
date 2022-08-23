@@ -1,23 +1,20 @@
-const express = require('express')
-const config = require('./config')
-const automationHandler = require('./twilio')
+import express from 'express'
+import config from './config'
+import twilio from './twilio'
+// const automationHandler = require('./twilio')
 const app = express()
-const cors = require('cors')
-
+import cors from 'cors'
 app.use(cors())
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
-
-
 //=================================================================================================================================================
 
 app.post('/message', async (req, res) => {
 	try {
-		const message = req.body.Body
-		const receivedNumber = req.body.From
-		const result = await automationHandler.parseReceivedBody(message, receivedNumber)
+		const { Body, From }: { Body: string, From: string } = req.body
+		const result = await twilio.parseReceivedBody(Body, From)
 		res.send(
 			`<Response>
 				<Message>
@@ -26,22 +23,30 @@ app.post('/message', async (req, res) => {
 			</Response>`)
 	}
 	catch (error) {
-		console.log(error)
-		res.status(400).json({ error })
+		console.error(error)
+		res.send(
+			`<Response>
+				<Message>
+				Error Please try again later
+				</Message>
+			</Response>`
+		)
 	}
-
 }
 )
 //=================================================================================================================================================
-app.get('/', async (req, res) => {
+app.get('/', async (_, res) => {
 	try {
 		res.status(200).json({ message: 'Server is running' })
 	}
-	catch (error) { console.log(error) }
+	catch (error) {
+		console.log(error)
+		res.status(200).json({ message: 'Error' })
+	}
 })
 
 //=================================================================================================================================================
 
-var listener = app.listen(config.port, () => {
-	console.log(`Server is listening on port ${listener.address().port}`)
+app.listen(config.port, async () => {
+	console.log(config.port)
 })
