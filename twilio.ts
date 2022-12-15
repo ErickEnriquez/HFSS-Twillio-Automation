@@ -37,7 +37,7 @@ export default {
 				//Send the Staffing Link
 				output = 'Please complete the staffing request form for the next season: \nhttps://hubbardswim.typeform.com/to/jP5dDs'
 			} else if (body.match(/Q12/gi)) {
-				output = 'Please complete the Q12 feedback form before October 24th: https://hubbardswim.typeform.com/to/HDyesl#name=xxxxx'
+				output = 'Please complete the Q12 feedback form https://hubbardswim.typeform.com/to/HDyesl#name=xxxxx'
 			} else if (body.match(/dseval/gi)) {
 				//send the form for desk supervisor eval
 			} else if (body.match(/job/gi)) {

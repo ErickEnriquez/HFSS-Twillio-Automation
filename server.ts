@@ -1,7 +1,6 @@
 import express from 'express'
 import config from './config'
 import twilio from './twilio'
-// const automationHandler = require('./twilio')
 const app = express()
 import cors from 'cors'
 app.use(cors())
@@ -48,5 +47,5 @@ app.get('/', async (_, res) => {
 //=================================================================================================================================================
 
 app.listen(config.port, async () => {
-	console.log(config.port)
+	console.log(`Server is live on port:${config.port}`)
 })
