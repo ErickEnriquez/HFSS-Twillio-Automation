@@ -11,4 +11,7 @@ RUN npm install
 #Copy app souce code to app directory
 COPY . .
 
+#build app
+RUN npx tsc
+
 CMD ["npm", "start"]
