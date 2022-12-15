@@ -47,5 +47,5 @@ app.get('/', async (_, res) => {
 //=================================================================================================================================================
 
 app.listen(config.port, async () => {
-	console.log(`Server is live on port:${config.port}`)
+	console.log(`Automation responder server is live on port : ${config.port}`)
 })
